@@ -34,13 +34,13 @@ Progetto: The Dune
   static void canc_caverna(Tcaverna* cave);  //elimina ultimo nodo della lista
   static void stampa_caverna(Tcaverna* cave);
   static void empty_caverna(Tcaverna** cave); //elimina intera lista
-  static void state_cave(); //stampa lo stato di ogni caverna
+  static void state_cave(Tscavatrice* excavator); //stampa lo stato di ogni caverna
   static void result(); //stampa il vincitore
   static void reset(); //risetta il gioco
   static void rematch(); //chiede ai giocatori di una nuova partita
-  static void avanza(); //avanza alla prossima caverna
-  static void abbatti(); //abbatti una caverna nella direzione non scelta
-  static void aggira(); //chimata solo nel caso di crollo imprevisto che crea una caverna tra la corrente e prossima
+  static void avanza(Tscavatrice* excavator); //avanza alla prossima caverna
+  static void abbatti(Tscavatrice** excavator); //abbatti una caverna nella direzione non scelta
+  static void aggira(Tscavatrice** excavator); //chimata solo nel caso di crollo imprevisto che crea una caverna tra la corrente e prossima
   static void scontro(); //in caso dello scontro tra 2 famiglie
   static void esci(); //invoca l'uscita
 //----------------------------------------------------------------- ------------DEFINIZIONI
