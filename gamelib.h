@@ -1,5 +1,5 @@
 /*
-NOME: Jingrui
+Nome: Jingrui
 Cognome: Zhu
 Progetto: The Dune
 */
@@ -30,5 +30,5 @@ Progetto: The Dune
   typedef struct Scavatrice{
     Tcaverna* posizione;
     int serbatoio_energia;
-    unsigned short int serbatoio_raccolta;
+    int serbatoio_raccolta;
   }Tscavatrice;
