@@ -9,7 +9,7 @@ Cognome: Zhu
 
 Matricola: 320795
 
-funzione SCONTRO: in caso di scontro tra i giocatori, in base alla quantità melassa presenti in 2 serbatoi, si trova trovare 1, 2 o 3 unità aggiuntive con la probabilità di 40/40/20, si vince chi ha più melassa; c'è una probabilità di 30% che non vince nessuno a causa di crollo; in caso di parità quantità melassa, si vincono entrambi giocatoti
+funzione SCONTRO: in caso di scontro tra i giocatori, in base alla quantità melassa presenti in 2 serbatoi,si trovano 1, 2 o 3 unità aggiuntive con la probabilità di 40-40-20, si vince chi ha più melassa; c'è una probabilità di 30% che non vince nessuno a causa di crollo; in caso di parità quantità melassa, si vincono entrambi giocatoti
 
 funzione CHIUDI CAVERNA: assenza di tale funzione in quando il gioco si continua in modo procedurale
 
