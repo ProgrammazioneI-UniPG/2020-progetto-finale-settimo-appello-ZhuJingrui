@@ -650,22 +650,11 @@ static void scontro(){ //OK
 
 }//end scontro
 
-static void esci(Tscavatrice** excavator){ //OK
+static void esci(){ //OK
 
     int page;
     system("clear");
 
-    Tscavatrice* player = *excavator;
-    free(player -> posizione -> prossima);
-    player -> posizione -> prossima = NULL;
-    player -> posizione -> prossima = (Tcaverna*)malloc(sizeof(Tcaverna));
-    player -> posizione -> prossima -> TipoCaverna = 3;
-    player -> posizione -> prossima -> TipoImprevisto = 0;
-    player -> posizione -> prossima -> QuantitaMelassa = 0;
-    player -> posizione -> prossima -> Direzione = 0;
-    player -> posizione -> prossima -> prossima = NULL;
-    player -> posizione -> prossima -> nuova = NULL;
-    *excavator = player;
     printf("You are going through the tunnel hearing the sound of collapsing\nYou are terrified of what could happen at any moment but you took a deep breath and heading to the next cave firmly\n");
     sleep(2);
     printf("You thought you are arriving to the next cave, instead, you see a light, you are stunned for a second then realize\n\033[1;33mYou are going home...\n");
@@ -776,13 +765,13 @@ static void state_cave(Tscavatrice* excavator){ //OK
       if(uscita_arvais > prob_crollo && uscita_arvais > prob_incontro){
         printf("\n\nYou are in the tunnel and you have this strange feeling...\n");
         sleep(2);
-        esci(&excavator);
+        esci();
       }
     }else if(turno == 2){
       if(uscita_hartornen > prob_crollo && uscita_hartornen > prob_incontro){
         printf("\n\nYou are in the tunnel and you have this strange feeling...\n");
         sleep(2);
-        esci(&excavator);
+        esci();
       }
     }
 
@@ -808,8 +797,7 @@ static void state_cave(Tscavatrice* excavator){ //OK
         break;
     }
     printf(" SPICE found: %d units\n", (excavator -> posizione -> QuantitaMelassa));
-    printf("\033[0m");
-    printf("excavator tank: %d/4 units | collection tank: %d/10 units\n\n", excavator -> serbatoio_energia, excavator -> serbatoio_raccolta);
+    printf("\033[0mexcavator tank: %d/4 units | collection tank: %d/10 units\n\n", excavator -> serbatoio_energia, excavator -> serbatoio_raccolta);
     sleep(1);
 
     //diversi tipi di caverna(normale, accidentale, speciale)
@@ -819,8 +807,7 @@ static void state_cave(Tscavatrice* excavator){ //OK
         printf("This cave seems normal, nothing happened\n");
         break;
       case 1:
-        printf("\033[1;32mThe Weirdest thing just happened, you found 1 unit of SPICE right after you entered the cave, you put it in the tank\n");
-        printf("\033[0m");
+        printf("\033[1;32mThe Weirdest thing just happened, you found 1 unit of SPICE right after you entered the cave, you put it in the tank\n\033[0m");
         if(excavator -> serbatoio_raccolta < 10){
           excavator -> serbatoio_raccolta += 1;
         }else if(excavator -> serbatoio_raccolta == 10){
@@ -830,8 +817,7 @@ static void state_cave(Tscavatrice* excavator){ //OK
         }
         break;
       case 2:
-        printf("\033[1;33mAH OH, your tank got damaged during the moving, it's leaking energy, you fixed it right away, but it still leaked 1 unit of energy\n");
-        printf("\033[0m");
+        printf("\033[1;33mAH OH, your tank got damaged during the moving, it's leaking energy, you fixed it right away, but it still leaked 1 unit of energy\033[0m\n");
         if(excavator -> serbatoio_raccolta >= 1){
           excavator -> serbatoio_raccolta -= 1;
         }else if(excavator -> serbatoio_energia >=1){
@@ -943,9 +929,8 @@ static void state_cave(Tscavatrice* excavator){ //OK
         printf("\033[0mAfter collected all the SPICE in this cave, you heard something moving but nothing happened\n");
         break;
       case 1:
-        printf("\033[1;33mSuddenly, the cave starts to collapse, you couldn't make to the next cave in time and you can't go back to the last cave\nYou are buried alive, but your excavator is fine, so you dig through to the next cave using 1 unit of energy\n");
+        printf("\033[1;33mSuddenly, the cave starts to collapse, you couldn't make to the next cave in time and you can't go back to the last cave\nYou are buried alive, but your excavator is fine, so you dig through to the next cave using 1 unit of energy\033[0m\n");
         sleep(1);
-        printf("\033[0m");
         if(excavator -> serbatoio_energia >= 1){
           excavator -> serbatoio_energia -= 1;
         }else if(excavator -> serbatoio_raccolta >= 1){
@@ -962,8 +947,7 @@ static void state_cave(Tscavatrice* excavator){ //OK
         }
         break;
       case 2:
-        printf("\033[1;31mOH NO, you have encountered the worst possibile danger in the SPICE extraction, the Sandworm\n\033[0mLuckily it is not interested in your life but it took all your SPICE in both tanks\n");
-        printf("\033[0m");
+        printf("\033[1;31mOH NO, you have encountered the worst possibile danger in the SPICE extraction, the Sandworm\n\033[0mLuckily it is not interested in your life but it took all your SPICE in both tanks\033[0m\n");
         sleep(1);
         excavator -> serbatoio_energia = 0;
         excavator -> serbatoio_raccolta = 0;
