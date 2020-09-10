@@ -4,11 +4,6 @@ Cognome: Zhu
 Progetto: The Dune
 */
 
-//Non c'è la funzione chiudi_caverna in quando il progetto è procedurale
-//Esiste solo un puntatore per il prossimo nodo, il motivo è creando 3 puntatori causa lo spreco della memoria e aumenta la possibilità segfault ma anche aumenta la difficoltà di progammazione
-//Scontro si definisce con la quantità totale di melassa che ha in entrambi serbatoti piu unita di melassa trovata casualmente (da 1 a 3 unità), vince chi ha piu melassa, però c'è la probabiità di 30% che entrambi giocatori si muoiono, in caso di pareggio la quantità, entrambi si vincono
-
-
 #include "gamelib.h"
 
 //----------------------------------------------------------------------------- DICHIARAZIONI
