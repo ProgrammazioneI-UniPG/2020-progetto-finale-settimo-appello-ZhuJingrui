@@ -6,7 +6,6 @@ Progetto: The Dune
 
 #include "gamelib.h"
 
-
 int main(){
 
   time_t t;
@@ -27,7 +26,7 @@ int main(){
   printf("The extraction is troublesome and extremly dangerous like a sudden landslide or the direct conflict with rival family\n\n");
   printf("But most dangerous of all, a horrifing creature known as");
   printf(" \033[1;31mThe Sandworm...");
-  sleep(2);
+  sleep(1);
   printf("\n\n\n\033[0mPress any character to read game istructions: ");
   if(scanf("%ls", &page) != '\0')
     system("clear");
@@ -47,6 +46,6 @@ int main(){
   if(scanf("%ls", &page) != '\0')
     system("clear");
 
-    menu_principale();
+  menu_principale();
 
 }// end main
